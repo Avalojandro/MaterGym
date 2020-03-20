@@ -1,0 +1,67 @@
+<div class="container mt-5">
+<form [formGroup]='formularioCliente' action="">
+<div class="row">
+    <div class="col-sm-4">
+        <div class="form-group">
+            <label for="">Nombre</label>
+            <input type="text" class="form-control" formControlName="nombre" placeholder="Agregar nombre">
+        </div>    
+    </div>
+    
+    <div class="col-sm-4">
+        <div class="form-group">
+            <label for="">Apellido</label>
+            <input type="text" class="form-control" formControlName="apellido" placeholder="Agregar apellido">
+        </div>    
+    </div>
+    
+    <div class="col-sm-4">
+        <div class="form-group">
+            <label for="">Correo</label>
+            <input type="text" class="form-control" formControlName="correo" placeholder="mail@email.com">
+        </div>    
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-sm-4">
+        <div class="form-group">
+            <label for="">DUI</label>
+            <input type="text" class="form-control" formControlName="DUI" placeholder="########-#">
+        </div>    
+    </div>
+    
+    <div class="col-sm-4">
+        <div class="form-group">
+            <label for="">Fecha de Nacimiento</label>
+            <input type="date" class="form-control" formControlName="fechaNacimiento">
+        </div>    
+    </div>
+    
+    <div class="col-sm-4">
+        <div class="form-group">
+            <label for="">Telefono</label>
+            <input type="tel" class="form-control" formControlName="telefono" placeholder="####-####">
+        </div>    
+    </div>
+
+    <div class="col-sm-12">
+        <div class="form-group">
+            <label for="">Foto de Perfil</label>
+            <input type="file" (change)="subirImagen($event)" class="form-control-file" formControlName="imgUrl" placeholder="Subir una imagen">
+        </div>    
+        <button class="btn btn-dark" type="button" disabled>
+            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+            {{porcentajeSubida}}%
+          </button>&nbsp;
+        <button (click)="agregar()" *ngIf="!esEditable"  [disabled]="formularioCliente.invalid" class="btn btn-primary">Guardar</button>
+        <button (click)="editar()" *ngIf="esEditable"  class="btn btn-primary">Editar</button>
+    </div>
+
+    <br>
+
+</div>
+
+</form>
+</div>

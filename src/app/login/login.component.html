@@ -1,0 +1,36 @@
+<br><br>
+<div class="container login shadow">
+
+    <div align="center">
+        <img src="../../assets/mastergym.png" class="gym" width="100">
+    </div>
+ 
+    <form [formGroup]=formularioLogin>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Correo electronico</label>
+          <input type="email" class="form-control shadow" formControlName="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Contraseña</label>
+          <input type="password" (keyup.enter)="ingresar()" class="form-control shadow" formControlName="password" id="exampleInputPassword1">
+        </div>
+        <button type="submit" (click)="ingresar()" [disabled]="!formularioLogin.valid" class="btn btn-dark shadow">Acceder</button>
+      </form>
+        <br>
+      <div *ngIf="!datosCorrectos" class="alert shadow alert-danger" role="alert">
+        {{textoError}}
+      </div>
+
+</div>
+
+
+  <ngx-spinner
+  bdOpacity = 0.9
+  bdColor = "#fffff"
+  size = "large"
+  color = "#000000"
+  type = "ball-atom"
+  [fullScreen] = "true"
+  >
+  <p style="color: white" > Iniciando Sesion... </p>
+  </ngx-spinner>
